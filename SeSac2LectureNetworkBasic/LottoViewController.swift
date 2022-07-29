@@ -22,6 +22,9 @@ class LottoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 메시지 앱에서 인증번호를 자동으로 넣어주는 앱
+        numberTextField.textContentType = .oneTimeCode
+        
         numberTextField.tintColor = .clear
         numberTextField.inputView = lottoPickerView
         

@@ -26,6 +26,10 @@ class TranslateViewController: UIViewController {
         
         userInputTextView.text = textViewPlaceholderText
         userInputTextView.textColor = .lightGray
+        
+        // 구조체나 열거형, 타입프로퍼티로 만들어서 사용!
+        userInputTextView.font = UIFont(name: "CookieRunOTF-Regular", size: 17)
+        
     }
     
 

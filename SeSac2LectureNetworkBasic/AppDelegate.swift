@@ -8,14 +8,28 @@
 import UIKit
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //2. 노티 제거
+        //알람 앱 미리 알림 스케줄 할일 목록 > 하루 전 알림 30 분 전 알림.
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        
+        UNUserNotificationCenter.current().delegate = self
+        
+        
         return true
     }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.list, .banner, .badge, .sound])
+        //iOS14 이상 list, banner <-> alert
+    }
+    
 
     // MARK: UISceneSession Lifecycle
 
@@ -30,7 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-
+//    항상 호출되는 메서드는 아니지만 앱이 꺼졌을 때 호출될 수 도 있는 메서드
+//    func applicationWillTerminate(_ application: UIApplication) {
+//        print("앱 꺼짐!")
+//    }
 }
 
