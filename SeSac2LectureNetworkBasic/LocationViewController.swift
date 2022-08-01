@@ -9,6 +9,8 @@ import UIKit
 
 class LocationViewController: UIViewController {
     
+    //LocationViewController.self 메타 타입 => "LocationViewController"가 들어있음
+    
     //Notification 1. user notification 클래스의 인스턴스 생성
     let notificationCenter = UNUserNotificationCenter.current()
     

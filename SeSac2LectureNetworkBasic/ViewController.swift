@@ -41,7 +41,14 @@ class ViewController: UIViewController, ViewPresentableProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        UserDefaultsHelper.standard.nickname = "고래밥"
+        
+        navigationTitleString = UserDefaultsHelper.standard.nickname
+        
+        UserDefaultsHelper.standard.rice = 80
+        
+        print(UserDefaultsHelper.standard.rice)
     }
 
 
