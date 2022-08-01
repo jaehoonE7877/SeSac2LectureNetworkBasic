@@ -10,9 +10,6 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-enum lotto: String {
-    case drwtNo1
-}
 
 class LottoViewController: UIViewController {
     

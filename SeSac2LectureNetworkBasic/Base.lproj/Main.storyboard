@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oNc-ek-lhP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U9h-sm-JvH">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -40,6 +40,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V1z-wu-LDF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1100" y="85"/>
+        </scene>
+        <!--Beer View Controller-->
+        <scene sceneID="342-CK-A5X">
+            <objects>
+                <viewController storyboardIdentifier="BeerViewController" id="U9h-sm-JvH" customClass="BeerViewController" customModule="SeSac2LectureNetworkBasic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MkZ-3m-24G">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aGX-Rq-t9U">
+                                <rect key="frame" x="83" y="124" width="248" height="248.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="aGX-Rq-t9U" secondAttribute="height" multiplier="1:1" id="pWh-Y5-PAi"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52g-2J-jFi">
+                                <rect key="frame" x="62" y="504.5" width="290" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="A3W-YJ-Ns2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBL-ZX-FnE">
+                                <rect key="frame" x="62" y="574.5" width="290" height="188"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWg-4Y-Evt">
+                                <rect key="frame" x="124" y="420.5" width="166" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="erw-IO-TP9"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="searchButtonTapped:" destination="U9h-sm-JvH" eventType="touchUpInside" id="Kx0-Kj-Pl2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Gsa-Ds-6fy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mBL-ZX-FnE" firstAttribute="height" secondItem="MkZ-3m-24G" secondAttribute="height" multiplier="0.21" id="3Kv-5p-p1f"/>
+                            <constraint firstItem="52g-2J-jFi" firstAttribute="centerX" secondItem="MkZ-3m-24G" secondAttribute="centerX" id="5Eq-ef-oes"/>
+                            <constraint firstItem="VWg-4Y-Evt" firstAttribute="centerX" secondItem="MkZ-3m-24G" secondAttribute="centerX" id="76z-Ms-qNh"/>
+                            <constraint firstItem="VWg-4Y-Evt" firstAttribute="top" secondItem="aGX-Rq-t9U" secondAttribute="bottom" constant="48" id="PWU-Yg-dz2"/>
+                            <constraint firstItem="52g-2J-jFi" firstAttribute="top" secondItem="VWg-4Y-Evt" secondAttribute="bottom" constant="40" id="QwG-za-euH"/>
+                            <constraint firstItem="mBL-ZX-FnE" firstAttribute="centerX" secondItem="MkZ-3m-24G" secondAttribute="centerX" id="aoW-hj-IQe"/>
+                            <constraint firstItem="mBL-ZX-FnE" firstAttribute="top" secondItem="52g-2J-jFi" secondAttribute="bottom" constant="40" id="d01-WH-I1V"/>
+                            <constraint firstItem="aGX-Rq-t9U" firstAttribute="width" secondItem="MkZ-3m-24G" secondAttribute="width" multiplier="0.6" id="eqC-qP-bje"/>
+                            <constraint firstItem="aGX-Rq-t9U" firstAttribute="top" secondItem="Gsa-Ds-6fy" secondAttribute="top" constant="80" id="hyH-vG-oat"/>
+                            <constraint firstItem="aGX-Rq-t9U" firstAttribute="centerX" secondItem="MkZ-3m-24G" secondAttribute="centerX" id="pa3-HT-ZyR"/>
+                            <constraint firstItem="mBL-ZX-FnE" firstAttribute="width" secondItem="MkZ-3m-24G" secondAttribute="width" multiplier="0.7" id="qU3-Pv-yyR"/>
+                            <constraint firstItem="VWg-4Y-Evt" firstAttribute="width" secondItem="MkZ-3m-24G" secondAttribute="width" multiplier="0.4" id="yDS-UD-5Zj"/>
+                            <constraint firstItem="52g-2J-jFi" firstAttribute="width" secondItem="MkZ-3m-24G" secondAttribute="width" multiplier="0.7" id="yuc-yv-YuS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="beerDescriptionLabel" destination="mBL-ZX-FnE" id="Rdk-hy-EUP"/>
+                        <outlet property="beerImageView" destination="aGX-Rq-t9U" id="Rq3-m2-TS7"/>
+                        <outlet property="beerNameLabel" destination="52g-2J-jFi" id="fio-Af-CvR"/>
+                        <outlet property="searchButton" destination="VWg-4Y-Evt" id="FGl-nU-XGy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0sM-4N-VjO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1373.913043478261" y="807.58928571428567"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="tne-QT-ifu">
