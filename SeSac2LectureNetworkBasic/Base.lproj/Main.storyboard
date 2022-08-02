@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U9h-sm-JvH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eoI-cN-KxP">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -111,6 +112,105 @@
             </objects>
             <point key="canvasLocation" x="1373.913043478261" y="807.58928571428567"/>
         </scene>
+        <!--Beer2 View Controller-->
+        <scene sceneID="1wd-WY-LnG">
+            <objects>
+                <viewController storyboardIdentifier="Beer2ViewController" id="eoI-cN-KxP" customClass="Beer2ViewController" customModule="SeSac2LectureNetworkBasic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fP7-hQ-b6q">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KjS-bL-MkP">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4k9-JC-wvu">
+                                    <size key="itemSize" width="201" height="261"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Beer2CollectionViewCell" id="Ei2-R5-zYn" customClass="Beer2CollectionViewCell" customModule="SeSac2LectureNetworkBasic" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="201" height="261"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="BQ4-yR-BrR">
+                                            <rect key="frame" x="0.0" y="0.0" width="201" height="261"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R1T-sd-oEh">
+                                                    <rect key="frame" x="0.0" y="0.0" width="201" height="203.5"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47s-ur-RIR">
+                                                    <rect key="frame" x="0.0" y="219" width="201" height="42"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="R1T-sd-oEh" firstAttribute="top" secondItem="BQ4-yR-BrR" secondAttribute="top" id="8w1-6J-F9c"/>
+                                                <constraint firstAttribute="trailing" secondItem="47s-ur-RIR" secondAttribute="trailing" id="OnH-5w-NAG"/>
+                                                <constraint firstItem="R1T-sd-oEh" firstAttribute="height" secondItem="BQ4-yR-BrR" secondAttribute="height" multiplier="0.78" id="Rdb-hO-5KN"/>
+                                                <constraint firstItem="47s-ur-RIR" firstAttribute="leading" secondItem="BQ4-yR-BrR" secondAttribute="leading" id="dUc-2n-Rab"/>
+                                                <constraint firstAttribute="trailing" secondItem="R1T-sd-oEh" secondAttribute="trailing" id="eF0-Yb-FD8"/>
+                                                <constraint firstAttribute="bottom" secondItem="47s-ur-RIR" secondAttribute="bottom" id="etH-io-C71"/>
+                                                <constraint firstItem="47s-ur-RIR" firstAttribute="height" secondItem="BQ4-yR-BrR" secondAttribute="height" multiplier="0.16" id="ioi-2O-CIu"/>
+                                                <constraint firstItem="R1T-sd-oEh" firstAttribute="leading" secondItem="BQ4-yR-BrR" secondAttribute="leading" id="ylE-wD-fTt"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="201" height="261"/>
+                                        <connections>
+                                            <outlet property="beerImageView" destination="R1T-sd-oEh" id="FOl-me-8ca"/>
+                                            <outlet property="beerNameLabel" destination="47s-ur-RIR" id="HZ0-k7-AHO"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Sun-Yh-iK2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Sun-Yh-iK2" firstAttribute="bottom" secondItem="KjS-bL-MkP" secondAttribute="bottom" id="OpX-6H-qIp"/>
+                            <constraint firstItem="KjS-bL-MkP" firstAttribute="top" secondItem="Sun-Yh-iK2" secondAttribute="top" id="nfP-IN-Z7b"/>
+                            <constraint firstItem="KjS-bL-MkP" firstAttribute="trailing" secondItem="Sun-Yh-iK2" secondAttribute="trailing" id="r0M-ye-0xh"/>
+                            <constraint firstItem="KjS-bL-MkP" firstAttribute="leading" secondItem="Sun-Yh-iK2" secondAttribute="leading" id="t2t-Cd-EM5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="beerCollectionView" destination="KjS-bL-MkP" id="HeU-AJ-g26"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oFw-KF-OyA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1373.913043478261" y="1500.6696428571429"/>
+        </scene>
+        <!--Beer Description View Controller-->
+        <scene sceneID="rUK-7N-kj2">
+            <objects>
+                <viewController storyboardIdentifier="BeerDescriptionViewController" id="80r-Ig-SAc" customClass="BeerDescriptionViewController" customModule="SeSac2LectureNetworkBasic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IRa-AK-zDf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLJ-cH-Ufi">
+                                <rect key="frame" x="55" y="162" width="304" height="528"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="elD-Eb-MOb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="beerDescriptionLabel" destination="hLJ-cH-Ufi" id="sbg-PP-Kuw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xqd-JO-5a3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2146.376811594203" y="1500.6696428571429"/>
+        </scene>
         <!--Search View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -164,6 +264,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="searchBar" destination="aw5-j1-rU8" id="gp5-tU-e6i"/>
                         <outlet property="searchTableView" destination="Vcr-5v-mqh" id="LgF-XB-3de"/>
                         <outlet property="secondTableView" destination="0xR-xU-Rf5" id="74t-f2-N3D"/>
                     </connections>
@@ -274,7 +375,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OWf-Ne-TWI">
-                                <rect key="frame" x="20" y="94" width="374" height="200"/>
+                                <rect key="frame" x="20" y="94" width="287" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="vKq-0v-jQf"/>
@@ -283,31 +384,49 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="otR-ln-xAB">
-                                <rect key="frame" x="87" y="393" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="otR-ln-xAB">
+                                <rect key="frame" x="68.5" y="393" width="190" height="269"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOV-BU-4ki">
+                                <rect key="frame" x="130" y="314" width="67" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="bnQ-eg-y7S"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="translateButtonTapped:" destination="Aut-dZ-KSj" eventType="touchUpInside" id="4xv-ew-8ub"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FgZ-NC-VYO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="FgZ-NC-VYO" firstAttribute="trailing" secondItem="nOV-BU-4ki" secondAttribute="trailing" constant="130" id="2ip-QK-nO4"/>
+                            <constraint firstItem="nOV-BU-4ki" firstAttribute="top" secondItem="OWf-Ne-TWI" secondAttribute="bottom" constant="20" id="G9S-Gd-8ht"/>
+                            <constraint firstItem="otR-ln-xAB" firstAttribute="width" secondItem="dwB-08-Dh4" secondAttribute="width" multiplier="0.57971" id="Gh6-HW-aPj"/>
+                            <constraint firstItem="otR-ln-xAB" firstAttribute="top" secondItem="nOV-BU-4ki" secondAttribute="bottom" constant="35" id="Q6z-YL-DOa"/>
+                            <constraint firstItem="nOV-BU-4ki" firstAttribute="leading" secondItem="FgZ-NC-VYO" secondAttribute="leading" constant="130" id="UqE-9x-Htt"/>
                             <constraint firstItem="OWf-Ne-TWI" firstAttribute="leading" secondItem="FgZ-NC-VYO" secondAttribute="leading" constant="20" id="bwq-rG-zNt"/>
+                            <constraint firstItem="nOV-BU-4ki" firstAttribute="width" secondItem="dwB-08-Dh4" secondAttribute="width" multiplier="0.371981" id="cBN-Sz-9fU"/>
                             <constraint firstItem="OWf-Ne-TWI" firstAttribute="top" secondItem="FgZ-NC-VYO" secondAttribute="top" constant="50" id="ioN-EU-Ndd"/>
+                            <constraint firstItem="otR-ln-xAB" firstAttribute="height" secondItem="dwB-08-Dh4" secondAttribute="height" multiplier="0.3" id="lW1-ME-h9k"/>
+                            <constraint firstItem="otR-ln-xAB" firstAttribute="centerX" secondItem="dwB-08-Dh4" secondAttribute="centerX" id="wNP-Ph-urg"/>
                             <constraint firstItem="FgZ-NC-VYO" firstAttribute="trailing" secondItem="OWf-Ne-TWI" secondAttribute="trailing" constant="20" id="xT7-uv-O6C"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="translatedTextView" destination="otR-ln-xAB" id="svu-IB-FSX"/>
                         <outlet property="userInputTextView" destination="OWf-Ne-TWI" id="dTv-t9-PUr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K4y-Oj-Lh3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2095.6521739130435" y="99.776785714285708"/>
+            <point key="canvasLocation" x="2279.7101449275365" y="99.776785714285708"/>
         </scene>
         <!--Web View View Controller-->
         <scene sceneID="EiY-Lq-oFJ">

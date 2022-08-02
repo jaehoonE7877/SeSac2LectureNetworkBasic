@@ -7,6 +7,24 @@
 
 import Foundation
 
+struct APIKey {
+    static let BOXOFFICE = "faff0d115c09cbd79a3e4bad25d907a4"
+    
+    static let NAVER_ID = "TNRc5NfUf6sqkTiPy72M"
+    static let NAVER_SECRET = "ZWKJLPOWyO"
+}
+
+struct EndPoint{
+    static let boxOfficeURL = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?"
+    static let lottoURL = "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo"
+    static let translateURL = "https://openapi.naver.com/v1/papago/n2mt"
+    static let beerUrl = "https://api.punkapi.com/v2/beers"
+}
+
+
+
+
+
 //enum StoryboardName: String{
 //    case Main
 //    case Setting
@@ -25,7 +43,7 @@ import Foundation
 //}
 
 
-// 열거형속 타입 프로퍼티(인스턴스를 통해서 접근을 할 수 없기 때문에 타입 저장 프로퍼티로 사용 가능)
+// 열거형속 타입 프로퍼티(l할 수 없기 때문에 타입 저장 프로퍼티로 사용 가능)
 fileprivate enum StoryboardName {
         static let main = "Main"
         static let search = "Search"

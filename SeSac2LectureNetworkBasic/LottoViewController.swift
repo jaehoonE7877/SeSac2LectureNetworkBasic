@@ -11,9 +11,24 @@ import Alamofire
 import SwiftyJSON
 
 
+struct LottoDate {
+    let calendar = Calendar.current
+    let currentDate = Date()
+    let dateFormatter = DateFormatter()
+    
+    var day: Int {
+        get {
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            let startDate = dateFormatter.date(from: "2002-12-07")
+            let lottoDayCnt = Calendar.current.dateComponents([.day], from: startDate!, to: currentDate).day!
+            let totalCnt = (lottoDayCnt / 7) + 1
+            
+            return totalCnt
+        }
+    }
+}
+
 class LottoViewController: UIViewController {
-    
-    
     
     @IBOutlet weak var numberTextField: UITextField!
 //    @IBOutlet weak var lottoPickerView: UIPickerView!
@@ -23,10 +38,14 @@ class LottoViewController: UIViewController {
     var lottoPickerView = UIPickerView()
     //코드로 뷰를 만드는 기능이 훨씬 더 많이 남아있슴!!
     
-    let numberList: [Int] = Array(1...1025).reversed()
+    
+    let numberList: [Int] = Array(1...LottoDate().day).reversed()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         // 메시지 앱에서 인증번호를 자동으로 넣어주는 앱
         numberTextField.textContentType = .oneTimeCode
@@ -39,7 +58,8 @@ class LottoViewController: UIViewController {
         
         designLabel(lottoNumberLabelCollection)
         
-        requestLotto(number: 1025)
+        
+        requestLotto(number: LottoDate().day)
         
         
         for i in 1...6 {
@@ -62,7 +82,7 @@ class LottoViewController: UIViewController {
     
     func requestLotto(number: Int){
         
-        let url = "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=\(number)"
+        let url = "\(EndPoint.lottoURL)=\(number)"
         
         //AF: 200~299 status code 성공
         AF.request(url, method: .get).validate().responseJSON { response in //앞쪽 접두어 AF로 바꿔야 함
@@ -71,9 +91,9 @@ class LottoViewController: UIViewController {
                 let json = JSON(value)
                 print("JSON: \(json)")
                 
-                let bonus = json["bnusNo"].intValue
-                print(bonus)
-                
+//                let bonus = json["bnusNo"].intValue
+//                print(bonus)
+//
                 let date = json["drwNoDate"].stringValue
                 print(date)
                 
@@ -93,6 +113,13 @@ class LottoViewController: UIViewController {
         
     }
 
+
+    
+    
+    
+    
+    
+    
 }
 
 // 안에 들어가는 객체에 대한 확장은 밑에서 주로 한다.
@@ -103,7 +130,7 @@ extension LottoViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return numberList.count
+        return LottoDate().day
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
