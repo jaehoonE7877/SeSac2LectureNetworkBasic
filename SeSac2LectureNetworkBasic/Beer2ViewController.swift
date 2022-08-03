@@ -113,10 +113,15 @@ class Beer2ViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         let vc = sb.instantiateViewController(withIdentifier: BeerDescriptionViewController.identifier) as! BeerDescriptionViewController
         
-        
         vc.beerDescription = Beer2ViewController.descArr[indexPath.row]
         
-        self.present(vc, animated: true)
+        let nav = UINavigationController(rootViewController: vc)
+        
+        nav.modalPresentationStyle = .fullScreen
+        
+//        self.navigationController?.pushViewController(nav, animated: false)
+
+        self.present(nav, animated: false)
     }
     
 }

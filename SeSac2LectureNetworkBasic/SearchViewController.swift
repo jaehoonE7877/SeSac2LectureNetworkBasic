@@ -40,8 +40,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var secondTableView: UITableView!
     
-    //
+    //BoxOffice 배열
     var list: [BoxOfficeModel] = []
+    
     
     
     override func viewDidLoad() {
@@ -70,6 +71,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let currentDate = dateFormatter.date(from: text)!
         let rawYesterday = currentDate - 86400
         
+        let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: currentDate)    // 1은 내일 -1은 어제
+        
         return dateFormatter.string(from: rawYesterday)
     }
     
@@ -80,7 +83,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let url = "\(EndPoint.boxOfficeURL)key=\(APIKey.BOXOFFICE)&targetDt=\(text)"
 
-        
+        // 네트워크 통신: 서버 점검 등에 대한 예외 처리
+        // 네트워크 통신이 느린 환경 테스트 시 컨디션 조절 가능
+        // 살가가 태수투 사 condition 조절 가능!
+        // 시뮬레이터에서도 가능! (추가 설치)
         AF.request(url, method: .get).validate().responseJSON { response in //앞쪽 접두어 AF로 바꿔야 함
             switch response.result {
             case .success(let value):
