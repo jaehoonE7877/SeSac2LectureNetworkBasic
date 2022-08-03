@@ -115,7 +115,7 @@
         <!--Image Search View Controller-->
         <scene sceneID="dIP-Nn-jXg">
             <objects>
-                <viewController id="yra-9l-bYS" customClass="ImageSearchViewController" customModule="SeSac2LectureNetworkBasic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImageSearchViewController" id="yra-9l-bYS" customClass="ImageSearchViewController" customModule="SeSac2LectureNetworkBasic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Me3-ve-3oI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -125,14 +125,53 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4vL-ue-869">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DI7-dj-fKC">
+                                    <size key="itemSize" width="153" height="156"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageSearchCollectionViewCell" id="J4X-22-yQQ" customClass="ImageSearchCollectionViewCell" customModule="SeSac2LectureNetworkBasic" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="153" height="156"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gBV-g6-8I9">
+                                            <rect key="frame" x="0.0" y="0.0" width="153" height="156"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T3I-xt-qnq">
+                                                    <rect key="frame" x="0.0" y="0.0" width="153" height="156"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="T3I-xt-qnq" secondAttribute="bottom" id="1H3-aT-buH"/>
+                                                <constraint firstItem="T3I-xt-qnq" firstAttribute="top" secondItem="gBV-g6-8I9" secondAttribute="top" id="PHb-n8-b17"/>
+                                                <constraint firstItem="T3I-xt-qnq" firstAttribute="leading" secondItem="gBV-g6-8I9" secondAttribute="leading" id="gmV-Yx-WkR"/>
+                                                <constraint firstAttribute="trailing" secondItem="T3I-xt-qnq" secondAttribute="trailing" id="h68-y5-BCq"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="153" height="156"/>
+                                        <connections>
+                                            <outlet property="searchImageView" destination="T3I-xt-qnq" id="QpN-PR-eB1"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="afd-tF-wcg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="imageSearchCollectionView" destination="4vL-ue-869" id="AYI-T7-lNx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="er3-au-g9G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1374" y="1501"/>
+            <point key="canvasLocation" x="1373.913043478261" y="1500.6696428571429"/>
         </scene>
         <!--Beer2 View Controller-->
         <scene sceneID="1wd-WY-LnG">

@@ -11,10 +11,41 @@ import Alamofire
 import SwiftyJSON
 import Kingfisher
 
-class ImageSearchViewController: UIViewController {
+struct ImageInfo {
+    let imageUrl: String
+}
 
+
+class ImageSearchViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    @IBOutlet weak var imageSearchCollectionView: UICollectionView!
+    
+    var imageURLList = [ImageInfo]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        imageSearchCollectionView.delegate = self
+        imageSearchCollectionView.dataSource = self
+        
+        let layout = UICollectionViewFlowLayout()
+        
+        let spacing: CGFloat = 20
+        
+        let width = UIScreen.main.bounds.width - (spacing * 3)
+        
+        layout.itemSize = CGSize(width: width / 2, height: (width / 2) * 1.2 )
+        
+        layout.scrollDirection = .vertical
+        
+        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+        
+        layout.minimumLineSpacing = spacing
+        layout.minimumInteritemSpacing = spacing
+        
+        imageSearchCollectionView.collectionViewLayout = layout
+        
+        imageSearchCollectionView.backgroundColor = UIColor.systemGray4
         
         fetchImage(text: "과자")
         
@@ -29,10 +60,10 @@ class ImageSearchViewController: UIViewController {
         //한글로 변환
         let kText = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         guard let kText = kText else { return }
-
+        
         
         let url = EndPoint.imageSearchURL + "query=\(String(describing: kText))&display=30&start=31&sort=sim"
-                
+        
         let header: HTTPHeaders = ["X-Naver-Client-Id": APIKey.NAVER_ID, "X-Naver-Client-Secret": APIKey.NAVER_SECRET]
         
         //파라미터 위치는 일정함
@@ -42,6 +73,14 @@ class ImageSearchViewController: UIViewController {
                 let json = JSON(value)
                 print("JSON: \(json)")
                 
+                for item in json["items"].arrayValue{
+                    
+                    let imageURL = item["link"].stringValue
+                    
+                    self.imageURLList.append(ImageInfo(imageUrl: imageURL))
+                }
+                
+                self.imageSearchCollectionView.reloadData()
                 
             case .failure(let error):
                 print(error)
@@ -50,5 +89,22 @@ class ImageSearchViewController: UIViewController {
         }
         
     }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        imageURLList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let cell = imageSearchCollectionView.dequeueReusableCell(withReuseIdentifier: ImageSearchCollectionViewCell.identifier, for: indexPath) as? ImageSearchCollectionViewCell else { return UICollectionViewCell() }
+        
+        
 
+        let imageUrl = URL(string: imageURLList[indexPath.item].imageUrl )
+        
+        cell.searchImageView.kf.setImage(with: imageUrl)
+        
+        return cell
+    }
+    
 }
